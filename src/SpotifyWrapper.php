@@ -1,6 +1,6 @@
 <?php
 
-namespace Mgoigfer\SpotifyWrapper;
+namespace Binalogue\SpotifyWrapper;
 
 use Exception;
 use SpotifyWebAPI\Session;

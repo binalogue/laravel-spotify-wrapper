@@ -1,9 +1,9 @@
 # Laravel Spotify Wrapper
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/mgoigfer/laravel-spotify-wrapper.svg?style=flat-square)](https://packagist.org/packages/mgoigfer/laravel-spotify-wrapper)
-[![Build Status](https://img.shields.io/travis/mgoigfer/laravel-spotify-wrapper/master.svg?style=flat-square)](https://travis-ci.org/mgoigfer/laravel-spotify-wrapper)
-[![Quality Score](https://img.shields.io/scrutinizer/g/mgoigfer/laravel-spotify-wrapper.svg?style=flat-square)](https://scrutinizer-ci.com/g/mgoigfer/laravel-spotify-wrapper)
-[![Total Downloads](https://img.shields.io/packagist/dt/mgoigfer/laravel-spotify-wrapper.svg?style=flat-square)](https://packagist.org/packages/mgoigfer/laravel-spotify-wrapper)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/binalogue/laravel-spotify-wrapper.svg?style=flat-square)](https://packagist.org/packages/binalogue/laravel-spotify-wrapper)
+[![Build Status](https://img.shields.io/travis/binalogue/laravel-spotify-wrapper/master.svg?style=flat-square)](https://travis-ci.org/binalogue/laravel-spotify-wrapper)
+[![Quality Score](https://img.shields.io/scrutinizer/g/binalogue/laravel-spotify-wrapper.svg?style=flat-square)](https://scrutinizer-ci.com/g/binalogue/laravel-spotify-wrapper)
+[![Total Downloads](https://img.shields.io/packagist/dt/binalogue/laravel-spotify-wrapper.svg?style=flat-square)](https://packagist.org/packages/binalogue/laravel-spotify-wrapper)
 
 This is a PHP wrapper for [jwilsson/spotify-web-api-php](https://github.com/jwilsson/spotify-web-api-php). It includes:
 
@@ -14,7 +14,7 @@ This is a PHP wrapper for [jwilsson/spotify-web-api-php](https://github.com/jwil
 You can install this package via [Composer](https://getcomposer.org/):
 
 ```bash
-composer require mgoigfer/laravel-spotify-wrapper
+composer require binalogue/laravel-spotify-wrapper
 ```
 
 Add the following lines to `config/services.php`:
@@ -60,7 +60,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Credits
 
-- [Mikel Goig](https://github.com/mgoigfer)
+- [Mikel Goig](https://github.com/binalogue)
 
 ## License
 

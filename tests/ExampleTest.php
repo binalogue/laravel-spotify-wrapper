@@ -1,6 +1,6 @@
 <?php
 
-namespace Mgoigfer\SpotifyWrapper\Tests;
+namespace Binalogue\SpotifyWrapper\Tests;
 
 use PHPUnit\Framework\TestCase;
 

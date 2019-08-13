@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Mgoigfer Test Suite">
+        <testsuite name="Binalogue Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

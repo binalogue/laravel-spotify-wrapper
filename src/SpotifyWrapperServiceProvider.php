@@ -1,9 +1,9 @@
 <?php
 
-namespace Mgoigfer\SpotifyWrapper;
+namespace Binalogue\SpotifyWrapper;
 
 use Illuminate\Support\ServiceProvider;
-use Mgoigfer\SpotifyWrapper\SpotifyWrapper;
+use Binalogue\SpotifyWrapper\SpotifyWrapper;
 use SpotifyWebAPI\Session;
 use SpotifyWebAPI\SpotifyWebAPI;
 

@@ -1,5 +1,5 @@
 {
-    "name": "mgoigfer/laravel-spotify-wrapper",
+    "name": "binalogue/laravel-spotify-wrapper",
     "description": "A PHP wrapper for Spotify's Web API. ",
     "keywords": [
         "laravel",
@@ -7,7 +7,7 @@
         "spotify",
         "package"
     ],
-    "homepage": "https://github.com/mgoigfer/laravel-spotify-wrapper",
+    "homepage": "https://github.com/binalogue/laravel-spotify-wrapper",
     "license": "MIT",
     "type": "package",
     "authors": [
@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Mgoigfer\\SpotifyWrapper\\": "src"
+            "Binalogue\\SpotifyWrapper\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mgoigfer\\SpotifyWrapper\\Tests\\": "tests"
+            "Binalogue\\SpotifyWrapper\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -44,7 +44,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Mgoigfer\\SpotifyWrapper\\SpotifyWrapperServiceProvider"
+                "Binalogue\\SpotifyWrapper\\SpotifyWrapperServiceProvider"
             ]
         }
     },
