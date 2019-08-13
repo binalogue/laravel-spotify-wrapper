@@ -2,76 +2,50 @@
 
 namespace Binalogue\SpotifyWrapper;
 
-use Exception;
+use Binalogue\SpotifyWrapper\Concerns\HasAuthWrapper;
+use Binalogue\SpotifyWrapper\Concerns\HasSpotifyWebApiWrapper;
+use Illuminate\Support\Collection;
 use SpotifyWebAPI\Session;
 use SpotifyWebAPI\SpotifyWebAPI;
 
 class SpotifyWrapper
 {
+    use HasAuthWrapper;
+    use HasSpotifyWebApiWrapper;
+
     /**
-     * The Spotify session.
+     * The Spotify options.
+     *
+     * @var array
+     */
+    protected $options;
+
+    /**
+     * The SpotifySession instance.
+     *
+     * @var \SpotifyWebAPI\Session
      */
     public $session;
 
     /**
-     * The Spotify API.
+     * The SpotifyWebAPI instance.
+     *
+     * @var \SpotifyWebAPI\SpotifyWebAPI
      */
     public $api;
-
-    /**
-     * The Spotify options.
-     */
-    private $options = [
-        'scope' => [],
-        'show_dialog' => false,
-    ];
 
     /**
      * Create a new Spotify instance.
      *
      * @param  \SpotifyWebAPI\Session  $session
      * @param  \SpotifyWebAPI\SpotifyWebAPI  $api
-     * @param  array  $parameters
-     *
+     * @param  array  $options
      * @return void
      */
-    public function __construct(Session $session, SpotifyWebAPI $api, $parameters = [])
+    public function __construct(Session $session, SpotifyWebAPI $api, $options = [])
     {
         $this->session = $session;
         $this->api = $api;
-
-        if (array_key_exists('scope', $parameters)) {
-            $this->options['scope'] = $parameters['scope'];
-        }
-
-        if (array_key_exists('show_dialog', $parameters)) {
-            $this->options['show_dialog'] = $parameters['show_dialog'];
-        }
-    }
-
-    /**
-     * Redirect to the Spotify authorize URL.
-     *
-     * @return void
-     */
-    private function redirectToSpotifyAuthorizeUrl()
-    {
-        header("Location: {$this->session->getAuthorizeUrl($this->options)}");
-        die();
-    }
-
-    /**
-     * Request an access token.
-     *
-     * @return void
-     */
-    public function requestAccessToken()
-    {
-        try {
-            $this->session->requestAccessToken($_GET['code']);
-            return $this;
-        } catch (Exception $e) {
-            $this->redirectToSpotifyAuthorizeUrl();
-        }
+        $this->options = $options;
     }
 }

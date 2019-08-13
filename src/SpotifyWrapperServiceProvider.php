@@ -2,8 +2,8 @@
 
 namespace Binalogue\SpotifyWrapper;
 
-use Illuminate\Support\ServiceProvider;
 use Binalogue\SpotifyWrapper\SpotifyWrapper;
+use Illuminate\Support\ServiceProvider;
 use SpotifyWebAPI\Session;
 use SpotifyWebAPI\SpotifyWebAPI;
 
@@ -27,10 +27,10 @@ class SpotifyWrapperServiceProvider extends ServiceProvider
             $session = new Session(
                 config('services.spotify.client_id'),
                 config('services.spotify.client_secret'),
-                array_key_exists('callback', $parameters) ? config('app.url').$parameters['callback'] : ''
+                array_key_exists('callback', $parameters) ? config('app.url') . $parameters['callback'] : ''
             );
 
-            return new SpotifyWrapper($session, new SpotifyWebAPI(), $parameters);
+            return new SpotifyWrapper($session, new SpotifyWebAPI(), $parameters['options'] ?? []);
         });
     }
 }
