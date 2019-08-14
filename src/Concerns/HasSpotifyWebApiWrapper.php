@@ -187,6 +187,32 @@ trait HasSpotifyWebApiWrapper
     }
 
     /**
+     * Create a new playlist with tracks.
+     *
+     * @param array $options Options for the new playlist.
+     * - string name Required. Name of the playlist.
+     * - bool public Optional. Whether the playlist should be public or not.
+     * @param string|array $tracks ID(s) or Spotify URI(s) of the track(s) to add.
+     *
+     * @return object The new playlist.
+     */
+    public function createPlaylistWithTracks(array $options, $tracks): object
+    {
+        $newPlaylist = $this->createPlaylist($options);
+
+        $playlistSuccess = $this->addPlaylistTracks(
+            $newPlaylist->id,
+            $tracks
+        );
+
+        if ($playlistSuccess) {
+            $newPlaylist->tracks = $this->getPlaylistTracks($newPlaylist->id);
+        }
+
+        return $newPlaylist;
+    }
+
+    /**
      * Get track audio features.
      * https://developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/
      *
