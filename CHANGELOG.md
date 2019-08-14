@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-spotify-wrapper` will be documented in this file.
 
+## 0.3.0 - 2019-08-14
+
+- ♻️ Refactor SpotifyWrapperServiceProvider.
+
 ## 0.2.0 - 2019-08-14
 
 - 🐛 Fix "getPlaylist" function.
