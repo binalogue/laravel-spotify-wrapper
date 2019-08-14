@@ -166,7 +166,7 @@ trait HasSpotifyWebApiWrapper
      *
      * @return bool Whether the tracks was successfully added.
      */
-    public function addPlaylistTracks($playlistId, $tracks, $options = [])
+    public function addPlaylistTracks(string $playlistId, $tracks, array $options = []): bool
     {
         return $this->api->addPlaylistTracks($playlistId, $tracks, $options);
     }
@@ -181,7 +181,7 @@ trait HasSpotifyWebApiWrapper
      *
      * @return object The new playlist.
      */
-    public function createPlaylist(array $options = []): object
+    public function createPlaylist(array $options): object
     {
         return $this->api->createPlaylist($options);
     }
@@ -507,12 +507,4 @@ trait HasSpotifyWebApiWrapper
             ->keys()
             ->first();
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Helper Methods
-    |--------------------------------------------------------------------------
-    */
-
-
 }
