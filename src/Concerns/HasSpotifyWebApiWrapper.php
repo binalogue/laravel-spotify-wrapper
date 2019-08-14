@@ -296,7 +296,13 @@ trait HasSpotifyWebApiWrapper
      */
     public function getPlaylist(string $playlistId, array $options = []): object
     {
-        return $this->api->getPlaylist($playlistId, $options);
+        $playlist = $this->api->getPlaylist($playlistId, $options);
+
+        $playlist->tracks = collect($playlist->tracks->items)->map(function ($item) {
+            return $item->track;
+        });
+
+        return $playlist;
     }
 
     /**
