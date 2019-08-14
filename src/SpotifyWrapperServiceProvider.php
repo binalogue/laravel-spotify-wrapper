@@ -24,13 +24,29 @@ class SpotifyWrapperServiceProvider extends ServiceProvider
     {
         $this->app->singleton('SpotifyWrapper', function ($app, $parameters = [])
         {
+            $protocol = (
+                !empty(request()->server('HTTPS'))
+                    && request()->server('HTTPS') !== 'off'
+                    || request()->server('SERVER_PORT') == 443
+            )
+                ? 'https://'
+                : 'http://';
+            $domainName = request()->server('HTTP_HOST');
+            $callback = array_key_exists('callback', $parameters)
+                ? $protocol . $domainName . $parameters['callback']
+                : '';
+
             $session = new Session(
                 config('services.spotify.client_id'),
                 config('services.spotify.client_secret'),
-                array_key_exists('callback', $parameters) ? config('app.url') . $parameters['callback'] : ''
+                $callback
             );
 
-            return new SpotifyWrapper($session, new SpotifyWebAPI(), $parameters['options'] ?? []);
+            return new SpotifyWrapper(
+                $session,
+                new SpotifyWebAPI(),
+                $parameters['options'] ?? []
+            );
         });
     }
 }
