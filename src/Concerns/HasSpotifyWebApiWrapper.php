@@ -193,10 +193,11 @@ trait HasSpotifyWebApiWrapper
      * - string name Required. Name of the playlist.
      * - bool public Optional. Whether the playlist should be public or not.
      * @param string|array $tracks ID(s) or Spotify URI(s) of the track(s) to add.
+     * @param string|null $image Base64 encoded image
      *
      * @return object The new playlist.
      */
-    public function createPlaylistWithTracks(array $options, $tracks): object
+    public function createPlaylistWithTracks(array $options, $tracks, ?string $image): object
     {
         $newPlaylist = $this->createPlaylist($options);
 
@@ -207,6 +208,14 @@ trait HasSpotifyWebApiWrapper
 
         if ($playlistSuccess) {
             $newPlaylist->tracks = $this->getPlaylistTracks($newPlaylist->id);
+        }
+
+        if ($image) {
+            try {
+                $this->updatePlaylistImage($newPlaylist->id, $image);
+            } catch (\Throwable $th) {
+                //
+            }
         }
 
         return $newPlaylist;
@@ -349,6 +358,36 @@ trait HasSpotifyWebApiWrapper
         return collect(
             $this->api->getRecommendations($options)->tracks
         );
+    }
+
+    /**
+     * Get recommendations based on artists, tracks, or genres.
+     *
+     * @param array $options Optional. Options for the recommendations.
+     *
+     * @return array An array of the requested recommendations IDs.
+     */
+    public function getRecommendationsIds(array $options = []): array
+    {
+        return $this->getRecommendations($options)
+            ->map(function ($track) {
+                return $track->id;
+            })
+            ->toArray();
+    }
+
+    /**
+     * Update the image of a playlist.
+     * https://developer.spotify.com/documentation/web-api/reference/playlists/upload-custom-playlist-cover/
+     *
+     * @param string $playlistId ID or Spotify URI of the playlist to update.
+     * @param string $imageData. Base64 encoded JPEG image data, maximum 256 KB in size.
+     *
+     * @return bool Whether the playlist was successfully updated.
+     */
+    public function updatePlaylistImage($playlistId, $imageData)
+    {
+        return $this->api->updatePlaylistImage($playlistId, $imageData);
     }
 
     /*
