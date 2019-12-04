@@ -566,9 +566,9 @@ trait HasSpotifyWebApiWrapper
      * Get the top genre of a collection of artists.
      *
      * @param  \Illuminate\Support\Collection  $artists
-     * @return string
+     * @return string|null
      */
-    public function getTopGenre(Collection $artists): string
+    public function getTopGenre(Collection $artists): ?string
     {
         return $artists
             ->groupBy('genres')
