@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-spotify-wrapper` will be documented in this file.
 
+## 0.4.1 - 2019-12-04
+
+- 🐛 Fix "getTopGenre".
+
 ## 0.4.0 - 2019-11-26
 
 - ✨ Add "getRecommendationsIds" and "updatePlaylistImage" functions.
