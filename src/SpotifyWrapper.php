@@ -23,22 +23,22 @@ class SpotifyWrapper
     /**
      * The SpotifySession instance.
      *
-     * @var \SpotifyWebAPI\Session
+     * @var Session
      */
     public $session;
 
     /**
      * The SpotifyWebAPI instance.
      *
-     * @var \SpotifyWebAPI\SpotifyWebAPI
+     * @var SpotifyWebAPI
      */
     public $api;
 
     /**
      * Create a new Spotify instance.
      *
-     * @param  \SpotifyWebAPI\Session  $session
-     * @param  \SpotifyWebAPI\SpotifyWebAPI  $api
+     * @param Session $session
+     * @param SpotifyWebAPI $api
      * @param  array  $options
      * @return void
      */

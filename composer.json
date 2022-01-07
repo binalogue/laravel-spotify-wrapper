@@ -19,8 +19,8 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "jwilsson/spotify-web-api-php": "^2.6"
+        "php": "^7.4",
+        "jwilsson/spotify-web-api-php": "^5.0"
     },
     "require-dev": {
         "larapack/dd": "^1.0",
