@@ -1,6 +1,9 @@
 # Changelog
 
 All notable changes to `laravel-spotify-wrapper` will be documented in this file.
+## 0.5 - 2022-01-07
+
+- New PHP version 7.4.
 
 ## 0.4.1 - 2019-12-04
 
